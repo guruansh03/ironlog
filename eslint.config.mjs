@@ -22,13 +22,29 @@ export default [
       'react/prop-types': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-require-imports': 'off',
       ...reactHooks.configs.recommended.rules,
+      // The following experimental rules are incompatible with React Native / Reanimated patterns
+      'react-hooks/immutability': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/purity': 'off',
+      'react-hooks/set-state-in-effect': 'off',
     },
     settings: {
       react: { version: 'detect' },
     },
   },
   {
-    ignores: ['node_modules/', 'android/', 'ios/', 'dist/', 'web/'],
+    ignores: [
+      'node_modules/',
+      'android/',
+      'ios/',
+      'dist/',
+      'web/',
+      '*.config.{js,mjs,ts}',
+      '*.setup.{js,ts}',
+      '.prettierrc.js',
+      'build_apk.bat',
+    ],
   },
 ];

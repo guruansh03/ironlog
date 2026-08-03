@@ -173,7 +173,11 @@ const NowPlayingTile = React.memo(function NowPlayingTile({ onPress }: { onPress
             <Pressable
               onPress={(event) => {
                 event.stopPropagation();
-                playback?.isPlaying ? pause() : play();
+                if (playback?.isPlaying) {
+                  pause();
+                } else {
+                  play();
+                }
               }}
               style={[npStyles.playBtn, { backgroundColor: activePalette.accent }]}
             >

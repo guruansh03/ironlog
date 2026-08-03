@@ -317,7 +317,11 @@ export default function WorkoutScreen() {
   function toggleCollapse(exerciseId: string) {
     setCollapsedExercises(prev => {
       const next = new Set(prev);
-      next.has(exerciseId) ? next.delete(exerciseId) : next.add(exerciseId);
+      if (next.has(exerciseId)) {
+        next.delete(exerciseId);
+      } else {
+        next.add(exerciseId);
+      }
       return next;
     });
   }

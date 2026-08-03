@@ -47,7 +47,7 @@ export default function FloatingMusicController() {
 
   useEffect(() => {
     if (shouldShow && uiState === 'hidden') {
-      // eslint-disable-next-line react-hooks/immutability
+       
       overlayState.value = 'collapsed';
     } else if (!shouldShow && uiState !== 'hidden') {
        
@@ -70,7 +70,7 @@ export default function FloatingMusicController() {
 
   const toggleExpand = useCallback(() => {
     if (uiState === 'expanded') {
-      // eslint-disable-next-line react-hooks/immutability
+       
       overlayState.value = 'collapsed';
        
       expandY.value = withSpring(0);
@@ -86,7 +86,7 @@ export default function FloatingMusicController() {
   const panGesture = Gesture.Pan()
     .onUpdate((e) => {
       if (overlayState.value === 'expanded') {
-        // eslint-disable-next-line react-hooks/immutability
+         
         expandY.value = Math.min(0, -180 + e.translationY);
       } else if (overlayState.value === 'collapsed' || overlayState.value === 'minimized') {
         dragX.value = e.translationX;
@@ -95,9 +95,9 @@ export default function FloatingMusicController() {
     .onEnd((e) => {
       if (overlayState.value === 'expanded') {
         if (e.translationY > 80) {
-          // eslint-disable-next-line react-hooks/immutability
+           
           overlayState.value = 'collapsed';
-          // eslint-disable-next-line react-hooks/immutability
+           
           expandY.value = withSpring(0);
         } else {
            

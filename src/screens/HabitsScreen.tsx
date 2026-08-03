@@ -116,7 +116,11 @@ export default function HabitsScreen() {
   const toggleOnDate = useCallback(
     (habitId: string, date: string) => {
       const store = useHabitStore.getState() as any;
-      store._toggleOnDate ? store._toggleOnDate(habitId, date) : store.toggleToday(habitId);
+      if (store._toggleOnDate) {
+        store._toggleOnDate(habitId, date);
+      } else {
+        store.toggleToday(habitId);
+      }
     },
     []
   );
@@ -124,9 +128,11 @@ export default function HabitsScreen() {
   const setValueOnDate = useCallback(
     (habitId: string, value: number, date: string) => {
       const store = useHabitStore.getState() as any;
-      store._setValueOnDate
-        ? store._setValueOnDate(habitId, value, date)
-        : store.setValueToday(habitId, value);
+      if (store._setValueOnDate) {
+        store._setValueOnDate(habitId, value, date);
+      } else {
+        store.setValueToday(habitId, value);
+      }
     },
     []
   );
