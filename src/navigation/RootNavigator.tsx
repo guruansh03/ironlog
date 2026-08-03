@@ -20,8 +20,14 @@ import MuscleHeatmapScreen from '../screens/gym/MuscleHeatmapScreen';
 import StrengthStandardsScreen from '../screens/gym/StrengthStandardsScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import SpotifyScreen from '../screens/SpotifyScreen';
-import { createLazyScreen } from '../components/app/LazyScreen';
-import { SkeletonCard } from '../components/ui/SkeletonLoader';
+import WorkoutScreen from '../screens/gym/WorkoutScreen';
+import CreateSplitScreen from '../screens/gym/CreateSplitScreen';
+import WorkoutSummaryScreen from '../screens/gym/WorkoutSummaryScreen';
+import WorkoutHistoryScreen from '../screens/gym/WorkoutHistoryScreen';
+import GymStatsScreen from '../screens/gym/GymStatsScreen';
+import LifetimeStatsScreen from '../screens/LifetimeStatsScreen';
+import MeasurementsScreen from '../screens/MeasurementsScreen';
+import MealCameraScreen from '../screens/nutrition/MealCameraScreen';
 import { runMigrations } from '../utils/migration';
 
 export type RootStackParams = {
@@ -48,22 +54,7 @@ export type RootStackParams = {
 };
 
 const Stack = createStackNavigator<RootStackParams>();
-const stackFallback = (
-  <View style={{ flex: 1, paddingHorizontal: 15, paddingTop: 16, gap: 10 }}>
-    <SkeletonCard lines={3} />
-    <SkeletonCard lines={2} />
-    <SkeletonCard lines={2} />
-  </View>
-);
 
-const WorkoutScreen = createLazyScreen(() => import('../screens/gym/WorkoutScreen'), stackFallback);
-const CreateSplitScreen = createLazyScreen(() => import('../screens/gym/CreateSplitScreen'), stackFallback);
-const WorkoutSummaryScreen = createLazyScreen(() => import('../screens/gym/WorkoutSummaryScreen'), stackFallback);
-const WorkoutHistoryScreen = createLazyScreen(() => import('../screens/gym/WorkoutHistoryScreen'), stackFallback);
-const GymStatsScreen = createLazyScreen(() => import('../screens/gym/GymStatsScreen'), stackFallback);
-const LifetimeStatsScreen = createLazyScreen(() => import('../screens/LifetimeStatsScreen'), stackFallback);
-const MeasurementsScreen = createLazyScreen(() => import('../screens/MeasurementsScreen'), stackFallback);
-const MealCameraScreen = createLazyScreen(() => import('../screens/nutrition/MealCameraScreen'), stackFallback);
 
 const STEPS_SYNC_INTERVAL_MS = 6 * 60 * 60 * 1000; // 6 hours
 

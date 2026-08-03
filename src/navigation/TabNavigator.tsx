@@ -22,20 +22,9 @@ import NotesScreen from '../screens/NotesScreen';
 import GymHomeScreen from '../screens/gym/GymHomeScreen';
 import HabitsScreen from '../screens/HabitsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import { createLazyScreen } from '../components/app/LazyScreen';
-import { SkeletonCard } from '../components/ui/SkeletonLoader';
+import NutritionScreen from '../screens/NutritionScreen';
 
 const Tab = createBottomTabNavigator();
-const NutritionScreen = createLazyScreen(
-  () => import('../screens/NutritionScreen'),
-  (
-    <View style={{ flex: 1, paddingHorizontal: 15, paddingTop: 16, gap: 10 }}>
-      <SkeletonCard lines={3} />
-      <SkeletonCard lines={3} />
-      <SkeletonCard lines={2} />
-    </View>
-  )
-);
 
 const TABS = [
   { name: 'Home',     icon: 'home',              label: 'Home' },
