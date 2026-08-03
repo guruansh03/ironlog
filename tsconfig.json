@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {},
+  "extends": "expo/tsconfig.base",
+  "include": [
+    "App.tsx",
+    "src/**/*"
+  ],
+  "exclude": [
+    "android",
+    "backups",
+    "sc",
+    "sorucecode",
+    "sourcecode",
+    "web"
+  ]
+}
